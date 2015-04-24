@@ -33,5 +33,4 @@ while True:
         if(GPIO.input(PINS[0])==False):
             print('D: '+ strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
             os.system('mpg321 /Audio/Codes.mp3 &')
-            print('debug log file path')
             sleep(3)
