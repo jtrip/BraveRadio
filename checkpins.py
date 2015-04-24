@@ -5,7 +5,7 @@ from time import sleep, gmtime, strftime
 import Adafruit_BBIO.GPIO as GPIO
 
 
-PINS_TO_CHECK = ["P9_14","P9_15","P9_16","P9_17","P9_18"]
+PINS_TO_CHECK = ["P9_11","P9_12","P9_13"]
 
 for pin in PINS_TO_CHECK:
     GPIO.setup(pin, GPIO.IN)

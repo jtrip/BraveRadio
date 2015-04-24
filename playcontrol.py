@@ -4,7 +4,7 @@ import os
 from time import sleep, gmtime, strftime
 import Adafruit_BBIO.GPIO as GPIO
 
-PINS = ["Debug","P9_16","P9_17","P9_18"]
+PINS = ["P9_11","P9_12","P9_13"]
 
 for pin in PINS:
     GPIO.setup(pin, GPIO.IN)
@@ -12,26 +12,26 @@ for pin in PINS:
 while True:
 
     if(GPIO.input(PINS[1])==True and GPIO.input(PINS[2])==True):
-        if(GPIO.input(PINS[3])==False):
-            print(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
+        if(GPIO.input(PINS[0])==False):
+            print('A: '+ strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
             os.system('mpg321 /Audio/PardonMe.mp3 &')
             sleep(3)
 
     if(GPIO.input(PINS[1])==False and GPIO.input(PINS[2])==True):
-        if(GPIO.input(PINS[3])==False):
-            print(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
+        if(GPIO.input(PINS[0])==False):
+            print('B: '+ strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
             os.system('mpg321 /Audio/WeinerDog.mp3 &')
             sleep(3)
 
     if(GPIO.input(PINS[2])==False and GPIO.input(PINS[1])==True):
-        if(GPIO.input(PINS[3])==False):
-            print(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
+        if(GPIO.input(PINS[0])==False):
+            print('C: '+ strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
             os.system('mpg321 /Audio/Soul_Injection.mp3 &')
             sleep(3)
 
     if(GPIO.input(PINS[1])==False and GPIO.input(PINS[2])==False):
-        if(GPIO.input(PINS[3])==False):
-            print(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
-            # os.system('mpg321 /Audio/Codes.mp3 &')
+        if(GPIO.input(PINS[0])==False):
+            print('D: '+ strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
+            os.system('mpg321 /Audio/Codes.mp3 &')
             print('debug log file path')
             sleep(3)
