@@ -16,12 +16,12 @@ DESC="BraveRadio python sound script"
 NAME=BraveRadio
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
-LOGFILE=/var/lib/cloud9/BraveRadio/log/out
+LOGFILE=/var/log/BraveRadio/out
 
 case "$1" in
     start)
         echo -e "Starting BraveRadio\n" `date`
-        sudo /var/lib/cloud9/BraveRadio/playcontrol.py >> $LOGFILE
+        sudo /home/debian/BraveRadio/playcontrol.py >> $LOGFILE
         ;;
     stop)
         echo "Stopping BraveRadio"
@@ -39,7 +39,7 @@ case "$1" in
         echo "first killall" 
         killall playcontrol.py
         echo "then start"
-        sudo /var/lib/cloud9/BraveRadio/playcontrol.py >> $LOGFILE
+        sudo /home/debian/BraveRadio/playcontrol.py >> $LOGFILE
         echo ":)"
         ;;
     *)
